@@ -1,3 +1,5 @@
+package ru.netology.web.test;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -20,16 +22,7 @@ public class MoneyTransferNoPageObjectTest {
         $("[data-test-id='dashboard']").shouldBe(visible);
 
 
-
     }
-
-
-
-
-
-
-
-
 
 
 }
