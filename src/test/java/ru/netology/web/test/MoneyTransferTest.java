@@ -18,19 +18,19 @@ public class MoneyTransferTest {
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
-        var DashboardPage = verificationPage.validVerify(verificationCode);
+        var dashboardPage = verificationPage.validVerify(verificationCode);
         var infoCardFirst = DataHelper.getFirstInfoCard();
         var infoCardSecond = DataHelper.getSecondInfoCard();
-        var firstDashboardPage = DashboardPage.getDashboardPage(infoCardFirst);
-        var secondDashboardPage = DashboardPage.getDashboardPage(infoCardSecond);
+        var firstDashboardPage = dashboardPage.getDashboardPage(infoCardFirst);
+        var secondDashboardPage = dashboardPage.getDashboardPage(infoCardSecond);
         var amount = generateValidAmount(firstDashboardPage);
         var expectedFirstDashboardPage = firstDashboardPage + amount;
         var expectedSecondDashboardPage = secondDashboardPage - amount;
-        var transactionPage = DashboardPage.selectCardToTransfer(infoCardFirst);
+        var transactionPage = dashboardPage.selectCardToTransfer(infoCardFirst);
         transactionPage.validTransfer(String.valueOf(amount), infoCardSecond);
 
-        assertEquals(expectedFirstDashboardPage, DashboardPage.getDashboardPage(infoCardFirst));
-        assertEquals(expectedSecondDashboardPage, DashboardPage.getDashboardPage(infoCardSecond));
+        assertEquals(expectedFirstDashboardPage, dashboardPage.getDashboardPage(infoCardFirst));
+        assertEquals(expectedSecondDashboardPage, dashboardPage.getDashboardPage(infoCardSecond));
 
     }
 
@@ -41,19 +41,19 @@ public class MoneyTransferTest {
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
-        val DashboardPage = verificationPage.validVerify(verificationCode);
+        val dashboardPage = verificationPage.validVerify(verificationCode);
         var infoCardSecond = DataHelper.getSecondInfoCard();
         var infoCardFirst = DataHelper.getFirstInfoCard();
-        val secondDashboardPage = DashboardPage.getDashboardPage(infoCardSecond);
-        val firstDashboardPage = DashboardPage.getDashboardPage(infoCardFirst);
+        val secondDashboardPage = dashboardPage.getDashboardPage(infoCardSecond);
+        val firstDashboardPage = dashboardPage.getDashboardPage(infoCardFirst);
         val amount = generateValidAmount(firstDashboardPage);
         val expectedFirstDashboardPage = firstDashboardPage - amount;
         val expectedSecondDashboardPage = secondDashboardPage + amount;
-        val transactionPage = DashboardPage.selectCardToTransfer(infoCardSecond);
+        val transactionPage = dashboardPage.selectCardToTransfer(infoCardSecond);
         transactionPage.validTransfer(String.valueOf(amount), infoCardFirst);
 
-        assertEquals(expectedSecondDashboardPage, DashboardPage.getDashboardPage(infoCardSecond));
-        assertEquals(expectedFirstDashboardPage, DashboardPage.getDashboardPage(infoCardFirst));
+        assertEquals(expectedSecondDashboardPage, dashboardPage.getDashboardPage(infoCardSecond));
+        assertEquals(expectedFirstDashboardPage, dashboardPage.getDashboardPage(infoCardFirst));
 
     }
 

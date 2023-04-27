@@ -25,7 +25,6 @@ public class LoginPageV2 {
     public void invalidLogin(DataHelper.AuthInfo info) {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());
-        sleep(15000);
         loginButton.click();
         errorBox.shouldBe(visible);
         $("[data-test-id=error-notification]>.notification__title").shouldHave(text("Ошибка"));
